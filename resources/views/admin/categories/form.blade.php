@@ -15,6 +15,19 @@
 !!}
 
 <div class="form-group">
+    <label>Parent</label>
+    {!!
+        Form::select('parent',
+            $productCategories,
+            $data->parent,
+            [
+                'class' => 'form-control'
+            ]
+        )
+    !!}
+</div>
+
+<div class="form-group">
     <label>Title</label>
     {!!
         Form::text('title',

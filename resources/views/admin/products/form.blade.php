@@ -27,6 +27,55 @@
 </div>
 
 <div class="form-group">
+    <label>Description</label>
+    {!!
+        Form::textarea('description',
+            $data->description, [
+                'class' => 'form-control',
+                'placeholder' => 'Product Description',
+                'rows' => 2,
+            ]
+        )
+    !!}
+</div>
+
+<div class="form-group">
+    <label>Purchase Price</label>
+    {!!
+        Form::number('purchase-price',
+            $data->title, [
+                'class' => 'form-control',
+                'placeholder' => 'Purchase Price',
+            ]
+        )
+    !!}
+</div>
+
+<div class="form-group">
+    <label>Selling Price</label>
+    {!!
+        Form::number('selling-price',
+            $data->title, [
+                'class' => 'form-control',
+                'placeholder' => 'Selling Price',
+            ]
+        )
+    !!}
+</div>
+
+<div class="form-group">
+    <label>Available Stock</label>
+    {!!
+        Form::number('stock',
+            $data->title, [
+                'class' => 'form-control',
+                'placeholder' => 'Stock',
+            ]
+        )
+    !!}
+</div>
+
+<div class="form-group">
     <label>Type</label>
     {!!
         Form::select('description',
@@ -41,29 +90,58 @@
 
 <div class="form-group">
     <label>Categories</label>
-    @foreach ($productCategories as $category)
+    @foreach ($productCategories as $key => $category)
 
-    {!!
-        Form::checkbox('category[' . $category . ']',
-            $category->id,
-            false
-        )
-    !!}
+    <label>
+        {!!
+            Form::checkbox('category[' . $category . ']',
+                $key,
+                false,
+                [
+                    'class' => 'form-control'
+                ]
+            )
+        !!}
+        {!! $category !!}
+    </label>
 
     @endforeach
 </div>
 
 <div class="form-group">
-    <label>Description</label>
+    <label>Gambar</label>
     {!!
-        Form::textarea('description',
-            $data->description, [
+        Form::file('image1',
+            $data->image,
+            [
                 'class' => 'form-control',
-                'placeholder' => 'Product Description',
-                'rows' => 2,
             ]
         )
     !!}
+
+    {!!
+        Form::file('image2',
+            $data->image,
+            [
+                'class' => 'form-control',
+            ]
+        )
+    !!}
+
+    {!!
+        Form::file('image2',
+            $data->image,
+            [
+                'class' => 'form-control',
+            ]
+        )
+    !!}
+</div>
+
+<div class="form-group">
+    {!! Form::submit('Submit', [
+        'class' => 'btn btn-sm btn-primary'
+    ]) !!}
 </div>
 
 {!! Form::close() !!}

@@ -31,8 +31,18 @@ class CategoriesController extends Controller
 
     public function create()
     {
+        // Get product categories to be show as parent options
+        $productCategories = [
+            0 => 'No Parent'
+        ];
+        
+        foreach (Categories::all() as $key => $value) {
+            $productCategories[$value->id] = $value->title;
+        };
+
         return view('admin/' . $this->viewDir . '/form', [
             'data' => new Categories(),
+            'productCategories' => $productCategories,
         ]);
     }
 
