@@ -1,0 +1,20 @@
+{
+    "name": "ocommerce",
+    "type": "library",
+    "description": "Oplosite E-commerce.",
+    "keywords": ["ecommerce"],
+    "homepage": "http://oplosite.com",
+    "license": "MIT",
+    "authors": [
+        {"name": "Jon", "email": "dimas.gs@outlook.com"}
+    ],
+    "require": {
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": { "Ocommerce\\": "src" }
+    },
+    "extra": {
+    }
+}
