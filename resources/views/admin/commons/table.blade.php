@@ -14,7 +14,7 @@
             @endforeach
             <td style="width: 130px;">
                 <div class="btn-group">
-                    <a href="{{ action($detailMethod, $row['id']) }}" class="btn btn-sm btn-default">
+                    <a href="{{ action($detailMethod, ['id' => $row['id']]) }}" class="btn btn-sm btn-default">
                         <i class="fa fa-list"></i>
                     </a>
                     <a href="{{ action($editMethod, $row['id']) }}" class="btn btn-sm btn-warning">

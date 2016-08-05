@@ -6,21 +6,29 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Models\Products;
+use App\Models\ProductImages;
 use App\Models\Categories;
 use App\Models\ProductTypes;
 
 class ProductController extends Controller
 {
     private $controller = 'ProductController';
+    private $viewDir = 'products';
 
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->input('id') !== null) {
+            // Redirect to detail
+            return $this->show($request->input('id'));
+        }
         $data = Products::paginate(10);
 
         return view('admin/commons/list', [
             'data' => $data,
             'isCreateButtonEnable' => true,
             'mainController' => $this->controller,
+            'detailMethod' => "$this->controller@index",
+            'editMethod' => "$this->controller@edit",
             'dataHeader' => [
                 'title' => 'title',
                 'description' => 'Description',
@@ -49,7 +57,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        echo json_encode($request->session()->get('users'));exit;
         // Product storing
         $product = Products::create([
             'title' => $request->input('title'),
@@ -58,7 +65,7 @@ class ProductController extends Controller
             'selling_price' => $request->input('selling-price'),
             'stock' => $request->input('stock'),
             'product_type_id' => $request->input('type'),
-            'user_id' => $request->input('type'),
+            'user_id' => 1,
             'created_by' => 'DUMMY',
         ]);
 
@@ -78,7 +85,7 @@ class ProductController extends Controller
         }
 
         // Bulk store to database
-        ProductImages::Insert(images);
+        ProductImages::Insert($images);
 
         // Redirect to detail
         return $this->show($product->id)->with('success', 'Successfully created a product');
@@ -86,7 +93,11 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        echo "ok";exit;
+        $data = Products::find($id);
+
+        return view("admin/$this->viewDir/detail'", [
+            'data' => $data
+        ]);
     }
 
     public function edit()
