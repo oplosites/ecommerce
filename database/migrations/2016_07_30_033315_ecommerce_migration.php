@@ -28,6 +28,9 @@ class EcommerceMigration extends Migration
             $table->string('title');
             $table->string('description')->nullable();
 
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->foreign('parent_id')->references('id')->on('categories');
+
             $table->string('created_by');
             $table->string('updated_by')->nullable();
             $table->timestamps();
@@ -85,9 +88,9 @@ class EcommerceMigration extends Migration
     public function down()
     {
         Schema::drop('product_categories');
+        Schema::drop('product_images');
+        Schema::drop('categories');
         Schema::drop('products');
         Schema::drop('product_types');
-        Schema::drop('categories');
-        Schema::drop('product_images');
     }
 }

@@ -47,9 +47,46 @@ class ProductController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        echo json_encode($request->session()->get('users'));exit;
+        // Product storing
+        $product = Products::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'purchase_price' => $request->input('purchase-price'),
+            'selling_price' => $request->input('selling-price'),
+            'stock' => $request->input('stock'),
+            'product_type_id' => $request->input('type'),
+            'user_id' => $request->input('type'),
+            'created_by' => 'DUMMY',
+        ]);
 
+        // Image storing (if any)
+        $images = [];
+        $productTitle = $request->input('title');
+        $rootCatalogue = base_path()."/public/catalogue/";
+        foreach ($request->file('image') as $key => $file) {
+            $filename =  $file->getClientOriginalName();
+            $file->move($rootCatalogue, $filename);
+            $images[] = [
+                'title' => $filename,
+                'url' => $rootCatalogue . $filename,
+                'product_id' => $product->id,
+                'created_by' => 'DUMMY',
+            ];
+        }
+
+        // Bulk store to database
+        ProductImages::Insert(images);
+
+        // Redirect to detail
+        return $this->show($product->id)->with('success', 'Successfully created a product');
+    }
+
+    public function show($id)
+    {
+        echo "ok";exit;
     }
 
     public function edit()

@@ -10,7 +10,8 @@
     Form::model($data, [
         'action' => 'ProductController@store',
         'method' => 'post',
-        'class' => 'form form-horizontal'
+        'class' => 'form form-horizontal',
+        'files' => true,
     ])
 !!}
 
@@ -78,7 +79,7 @@
 <div class="form-group">
     <label>Type</label>
     {!!
-        Form::select('description',
+        Form::select('type',
             $productTypes,
             $data->product_type_id,
             [
@@ -89,50 +90,39 @@
 </div>
 
 <div class="form-group">
-    <label>Categories</label>
-    @foreach ($productCategories as $key => $category)
+    <label>Categories
+        <p>
+        @foreach ($productCategories as $key => $category)
 
-    <label>
-        {!!
-            Form::checkbox('category[' . $category . ']',
-                $key,
-                false,
-                [
-                    'class' => 'form-control'
-                ]
-            )
-        !!}
-        {!! $category !!}
+            <div class="icheckbox_flat-green" style="position: relative;">
+                {!!
+                    Form::checkbox('category[' . $category . ']',
+                        $key,
+                        false,
+                        [
+                            'class' => 'flat',
+                            'data-parsley-minchec' => '2',
+                            'data-parsley-multiple' => 'categories',
+                            'style' => 'position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);',
+                        ]
+                    )
+                !!}
+            </div> {!! $category !!}
+            <br/>
+            <br/>
+
+        @endforeach
+        </p>
     </label>
-
-    @endforeach
 </div>
 
 <div class="form-group">
     <label>Gambar</label>
     {!!
-        Form::file('image1',
-            $data->image,
+        Form::file('image[]',
             [
                 'class' => 'form-control',
-            ]
-        )
-    !!}
-
-    {!!
-        Form::file('image2',
-            $data->image,
-            [
-                'class' => 'form-control',
-            ]
-        )
-    !!}
-
-    {!!
-        Form::file('image2',
-            $data->image,
-            [
-                'class' => 'form-control',
+                'multiple' => true
             ]
         )
     !!}

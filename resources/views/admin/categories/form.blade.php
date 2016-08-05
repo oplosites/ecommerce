@@ -19,7 +19,7 @@
     {!!
         Form::select('parent',
             $productCategories,
-            $data->parent,
+            $data->parent_id,
             [
                 'class' => 'form-control'
             ]

@@ -28,6 +28,8 @@ class Products extends Model
         'stock',
         'purchase_price',
         'selling_price',
+        'product_type_id',
+        'user_id',
     ];
 
     public function productType()

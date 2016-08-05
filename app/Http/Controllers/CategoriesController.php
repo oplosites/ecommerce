@@ -35,7 +35,7 @@ class CategoriesController extends Controller
         $productCategories = [
             0 => 'No Parent'
         ];
-        
+
         foreach (Categories::all() as $key => $value) {
             $productCategories[$value->id] = $value->title;
         };
@@ -46,16 +46,31 @@ class CategoriesController extends Controller
         ]);
     }
 
+    /**
+     * Store new data to the database
+     */
     public function store(Request $request)
     {
-        $data = Categories::create([
+        // Get parent category input
+        $parentInput = $request->input('parent');
+
+        // Default category to be input to the database
+        $categoryInputable = [
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'created_by' => 'DUMMY',
-        ]);
+        ];
 
-        return redirect('/admin/' . $this->viewDir . '/' . $data->id)
-            ->with('success', 'The ' . $this->viewDir . ' has been successfully created');
+        // When user chose a parent
+        if ($parentInput != 0) {
+            $categoryInputable['parent_id'] = $parentInput;
+        }
+
+        // Save new category to database
+        $data = Categories::create($categoryInputable);
+
+        return redirect("/admin/$this->viewDir/$data->id")
+            ->with('success', "The $this->viewDir has been successfully created");
     }
 
     public function show($id)
