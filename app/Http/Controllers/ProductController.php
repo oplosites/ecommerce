@@ -30,7 +30,7 @@ class ProductController extends Controller
             'detailMethod' => "$this->controller@index",
             'editMethod' => "$this->controller@edit",
             'dataHeader' => [
-                'title' => 'title',
+                'title' => 'Title',
                 'description' => 'Description',
             ]
         ]);
@@ -38,11 +38,13 @@ class ProductController extends Controller
 
     public function create()
     {
+        // Get product types
         $productTypes = [];
         foreach (ProductTypes::all() as $key => $value) {
             $productTypes[$value->id] = $value->title;
         };
 
+        // Get product categories
         $productCategories = [];
         foreach (Categories::all() as $key => $value) {
             $productCategories[$value->id] = $value->title;
@@ -52,6 +54,7 @@ class ProductController extends Controller
             'data' => new Products(),
             'productTypes' => $productTypes,
             'productCategories' => $productCategories,
+            'currentCategories' => '',
         ]);
     }
 
@@ -69,10 +72,18 @@ class ProductController extends Controller
             'created_by' => 'DUMMY',
         ]);
 
+        // Storing categories
+        $categories = [];
+        foreach ($request->input('categories') as $key => $value) {
+            $categories[] = $key;
+        }
+        $product->categories()->sync($categories);
+
         // Image storing (if any)
         $images = [];
         $productTitle = $request->input('title');
-        $rootCatalogue = base_path()."/public/catalogue/";
+        $rootCatalogue = "catalogue/";
+
         foreach ($request->file('image') as $key => $file) {
             $filename =  $file->getClientOriginalName();
             $file->move($rootCatalogue, $filename);
@@ -88,30 +99,68 @@ class ProductController extends Controller
         ProductImages::Insert($images);
 
         // Redirect to detail
-        return $this->show($product->id)->with('success', 'Successfully created a product');
+        return redirect("/admin/product/$product->id")
+            ->with('success', 'Successfully created a product');
     }
 
     public function show($id)
     {
         $data = Products::find($id);
 
-        return view("admin/$this->viewDir/detail'", [
-            'data' => $data
+        return view("admin/$this->viewDir/detail", [
+            'data' => $data,
+            'controller' => $this->controller,
         ]);
     }
 
-    public function edit()
+    public function edit($id)
     {
+        // Get product types
+        $productTypes = [];
+        foreach (ProductTypes::all() as $key => $value) {
+            $productTypes[$value->id] = $value->title;
+        };
 
+        // Get product categories
+        $productCategories = [];
+        foreach (Categories::all() as $key => $value) {
+            $productCategories[$value->id] = $value->title;
+        };
+
+        // Get the product
+        $product = Products::find($id);
+
+        // Get current categories
+        $currentCategories = '';
+        foreach ($product->categories as $key => $value) {
+            $currentCategories .= "$value->id;";
+        }
+
+        return view('admin/' . $this->viewDir . '/form', [
+            'data' => $product,
+            'productTypes' => $productTypes,
+            'productCategories' => $productCategories,
+            'currentCategories' => $currentCategories,
+        ]);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
+        $data = Products::find($id)->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'updated_by' => 'DUMMY',
+        ]);
 
+        return redirect('/admin/' . $this->viewDir . '/' . $data->id)
+            ->with('success', 'The ' . $this->viewDir . ' has been successfully updated');
     }
 
-    public function destroy()
+    public function destroy(Request $request)
     {
+        $data = Products::find($request->input('item-id'))->delete();
 
+        return redirect('/admin/product')
+            ->with('success', 'The ' . $this->viewDir . ' has been successfully deleted');
     }
 }

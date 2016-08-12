@@ -39,7 +39,7 @@ class Products extends Model
 
     public function productImages()
     {
-        return $this->hasMany('App\Models\ProductImages');
+        return $this->hasMany('App\Models\ProductImages', 'product_id');
     }
 
     public function uploader()
@@ -49,6 +49,6 @@ class Products extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('App\Models\Categories');
+        return $this->belongsToMany('App\Models\Categories', 'product_categories', 'product_id', 'category_id');
     }
 }

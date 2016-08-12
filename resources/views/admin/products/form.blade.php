@@ -44,7 +44,7 @@
     <label>Purchase Price</label>
     {!!
         Form::number('purchase-price',
-            $data->title, [
+            $data->purchase_price, [
                 'class' => 'form-control',
                 'placeholder' => 'Purchase Price',
             ]
@@ -56,7 +56,7 @@
     <label>Selling Price</label>
     {!!
         Form::number('selling-price',
-            $data->title, [
+            $data->selling_price, [
                 'class' => 'form-control',
                 'placeholder' => 'Selling Price',
             ]
@@ -68,7 +68,7 @@
     <label>Available Stock</label>
     {!!
         Form::number('stock',
-            $data->title, [
+            $data->stock, [
                 'class' => 'form-control',
                 'placeholder' => 'Stock',
             ]
@@ -81,7 +81,7 @@
     {!!
         Form::select('type',
             $productTypes,
-            $data->product_type_id,
+            isset($data->productType) ? $data->productType->id : null,
             [
                 'class' => 'form-control'
             ]
@@ -93,12 +93,12 @@
     <label>Categories
         <p>
         @foreach ($productCategories as $key => $category)
-
+            <?php $ischecked = StringUtil::contains($currentCategories, "$key"); ?>
             <div class="icheckbox_flat-green" style="position: relative;">
                 {!!
-                    Form::checkbox('category[' . $category . ']',
+                    Form::checkbox('categories[' . $key . ']',
                         $key,
-                        false,
+                        $ischecked,
                         [
                             'class' => 'flat',
                             'data-parsley-minchec' => '2',
@@ -118,6 +118,11 @@
 
 <div class="form-group">
     <label>Gambar</label>
+    @foreach ($data->productImages as $image)
+        <br/>
+        <img src="{{ asset($image->url) }}"/>
+    @endforeach
+
     {!!
         Form::file('image[]',
             [
@@ -129,9 +134,13 @@
 </div>
 
 <div class="form-group">
-    {!! Form::submit('Submit', [
-        'class' => 'btn btn-sm btn-primary'
-    ]) !!}
+    {!!
+        Form::submit('Submit', [
+            'class' => 'btn btn-sm btn-primary'
+        ])
+    !!}
+
+    <a class="btn btn-sm btn-default" href="{{ URL::previous() }}">Back</a>
 </div>
 
 {!! Form::close() !!}

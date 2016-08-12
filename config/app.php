@@ -210,6 +210,7 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'Base' => 'App\Http\Helpers\Base',
+        'StringUtil'  => 'App\Http\Helpers\StringUtil',
     ],
 
     'app_name' => 'Reine',
