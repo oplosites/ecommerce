@@ -1,9 +1,34 @@
-<div class="ajax-loading-block-window" style="display: none">
+@if (Session::has('success'))
+<div class="alert alert-success alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  {{ Session::get('success') }}
 </div>
-<div id="dialog-notifications-success" title="Notification" style="display:none;">
+@endif
+
+@if (Session::has('info'))
+<div class="alert alert-info alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  {{ Session::get('info') }}
 </div>
-<div id="dialog-notifications-error" title="Error" style="display:none;">
+@endif
+
+@if (Session::has('warning'))
+<div class="alert alert-warning alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  {{ Session::get('warning') }}
 </div>
-<div id="bar-notification" class="bar-notification">
-    <span class="close" title="Close">&nbsp;</span>
+@endif
+
+@if (Session::has('danger'))
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  {{ Session::get('danger') }}
 </div>
+@endif
+
+@if (Session::has('error'))
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  {{ Session::get('error') }}
+</div>
+@endif

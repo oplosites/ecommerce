@@ -14,10 +14,10 @@
             @endforeach
             <td style="width: 130px;">
                 <div class="btn-group">
-                    <a href="{{ action($detailMethod, ['id' => $row['id']]) }}" class="btn btn-sm btn-default">
+                    <a href="{{ action('\\App\\Modules\\Products\\Controllers\\' . $detailMethod, ['id' => $row['id']]) }}" class="btn btn-sm btn-default">
                         <i class="fa fa-list"></i>
                     </a>
-                    <a href="{{ action($editMethod, $row['id']) }}" class="btn btn-sm btn-warning">
+                    <a href="{{ action('\\App\\Modules\\Products\\Controllers\\' . $editMethod, $row['id']) }}" class="btn btn-sm btn-warning">
                         <i class="fa fa-pencil"></i>
                     </a>
                     <button name="delete-button" class="btn btn-sm btn-danger delete-button" data-toggle="modal" data-target="#deletion-modal" data-id="{{ $row['id'] }}"><i class="fa fa-trash"></i></button>
@@ -27,7 +27,7 @@
         @endforeach
         @else
         <tr>
-            <td>No data available to display</td>
+            <td colspan="{{ sizeOf($heads) + 1 }}">No data available to display</td>
         </tr>
         @endif
     </tbody>
@@ -52,7 +52,7 @@
             </div>
             <div class="modal-footer">
                 <div class="btn-group">
-                    {!! Form::open(['action' => $mainController . '@destroy', 'method' => 'POST', 'class' => 'form form-horizontal']) !!}
+                    {!! Form::open(['action' => '\\App\\Modules\\Products\\Controllers\\' . $mainController . '@destroy', 'method' => 'POST', 'class' => 'form form-horizontal']) !!}
                     <input type="hidden" name="item-id" />
                     <button type="submit" class="btn btn-primary">Yes</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
