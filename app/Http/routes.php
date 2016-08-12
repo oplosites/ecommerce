@@ -53,6 +53,21 @@ Route::group(['prefix' => 'admin'], function() {
     });
 });
 
+// Sales management
+Route::group(['prefix' => 'sales'], function() {
+    Route::get('/', 'SalesController@index');
+});
+
+// Users management
+Route::group(['prefix' => 'users'], function() {
+    Route::get('/', 'UsersController@index');
+});
+
+// Users management
+Route::group(['prefix' => 'settings'], function() {
+    Route::get('/', 'SettingsController@index');
+});
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

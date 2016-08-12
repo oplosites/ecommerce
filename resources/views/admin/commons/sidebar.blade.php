@@ -26,7 +26,7 @@
                 <div class="clearfix"></div>
                 <ul class="nav side-menu">
                     <li>
-                        <a><i class="fa fa-dashboard"></i> Administrator <span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fa fa-gift"></i> Products Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
                                 {!! link_to_action('ProductController@index', 'Products') !!}
@@ -36,6 +36,30 @@
                             </li>
                             <li>
                                 {!! link_to_action('ProductTypesController@index', 'Product Types') !!}
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-dollar"></i> Sales Management <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <li>
+                                {!! link_to_action('SalesController@index', 'Sales') !!}
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-user"></i> User Management <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <li>
+                                {!! link_to_action('UsersController@index', 'Users') !!}
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-gear"></i> Application Settings <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <li>
+                                {!! link_to_action('SettingsController@index', 'General Settings') !!}
                             </li>
                         </ul>
                     </li>

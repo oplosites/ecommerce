@@ -213,6 +213,6 @@ return [
         'StringUtil'  => 'App\Http\Helpers\StringUtil',
     ],
 
-    'app_name' => 'Reine',
+    'app_name' => 'OCommerce',
 
 ];

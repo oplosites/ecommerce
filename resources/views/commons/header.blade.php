@@ -2,7 +2,7 @@
 
     <meta name="robots" content="noindex,follow">
 
-    <title>shopatvelvet</title>
+    <title>OCommerce</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="Author" content="shopatvelvet, flitts">

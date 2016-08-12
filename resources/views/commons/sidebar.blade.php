@@ -1,6 +1,6 @@
 <div id="sidebar-fixed" class=" sidebar hidden-xs hidden-sm">
 
-    <a href="{{ URL::to('demo') }}"><img src="{{ asset('/Themes/sav/Content/images/logo.png') }}" title="shopatvelvet" class="img-responsive sav-logo" /></a>
+    <a href="{{ URL::to('demo') }}"><img src="{{ asset('/Themes/sav/Content/images/logo.png') }}" title="ocommerce" class="img-responsive sav-logo" /></a>
 
     <div class="sidebar-menu">
 
