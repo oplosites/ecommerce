@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.main')
 
 @section('content')
 
@@ -11,7 +11,7 @@
             <?php
                 // Determining which create method that is used.
                 // The default is the create method
-                $createTarget = '\\App\\Modules\\Products\\Controllers\\' . $mainController . '@' . (
+                $createTarget = $mainController . '@' . (
                     isset($createMethod) ? $createMethod : 'create'
                 );
             ?>

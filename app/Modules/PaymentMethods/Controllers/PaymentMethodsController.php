@@ -15,49 +15,48 @@
  * @link       http://oplosite.com
  */
 
-namespace App\Modules\Products\Controllers;
-
-use Illuminate\Http\Request;
+namespace App\Modules\PaymentMethods\Controllers;
 
 use App\Http\Requests;
-use App\Modules\Products\Models\ProductTypes;
+use Illuminate\Http\Request;
+use App\Modules\PaymentMethods\Models\PaymentMethods;
 
-class ProductTypesController extends \App\Http\Controllers\Controller
+class PaymentMethodsController extends \App\Http\Controllers\Controller
 {
     /*
      * Base package module for this controller
      */
-    private $controller = '\App\Modules\Products\Controllers\ProductTypesController';
+    private $controller = '\App\Modules\Transactions\Controllers\TransactionsController';
 
     /*
      * Name of this module
      */
-    private $module = 'Products';
+    private $module = 'PaymentMethods';
 
     /*
      * Name of module in lowercase and plural style
      */
-    private $plural = 'types';
+    private $plural = 'payments';
 
     /*
      * Name of module in lowercase and singular style
      */
-    private $singular = 'type';
+    private $singular = 'payment';
 
     /*
      * Main index method to display list of data
      */
     public function index(Request $request)
      {
-         if ($request->input('id') !== null) {
+        if ($request->input('id') !== null) {
              // Redirect to detail
              return $this->show($request->input('id'));
-         }
-        $data = ProductTypes::paginate(10);
+        }
+        $data = PaymentMethods::paginate(10);
 
-        return view('Products::commons/list', [
-            'pageTitle' => 'Product Types List',
-            'panelTitle' => 'Product Types',
+        return view("commons/list", [
+            'pageTitle' => 'Payment Methods List',
+            'panelTitle' => 'Payment Methods',
             'data' => $data,
             'isCreateButtonEnable' => true,
             'mainController' => $this->controller,
@@ -73,16 +72,16 @@ class ProductTypesController extends \App\Http\Controllers\Controller
     public function create()
     {
         return view("$this->module::$this->plural/form", [
-            'pageTitle' => 'Product Type Form',
-            'panelTitle' => 'New Product Type',
-            'data' => new ProductTypes(),
+            'pageTitle' => 'Payment Method Form',
+            'panelTitle' => 'New Payment Method',
+            'data' => new Transactions(),
             'mainController' => $this->controller,
         ]);
     }
 
     public function store(Request $request)
     {
-        $data = ProductTypes::create([
+        $data = Transactions::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'created_by' => 'DUMMY',
@@ -94,12 +93,12 @@ class ProductTypesController extends \App\Http\Controllers\Controller
 
     public function show($id)
     {
-        $data = ProductTypes::find($id);
+        $data = Transactions::find($id);
 
         return view("$this->module::$this->plural/detail", [
             'controller' => $this->controller,
             'pageTitle' => 'Product Type Detail',
-            'data' => $data,
+            'data' => Transactions::find($id),
         ]);
     }
 
@@ -107,15 +106,15 @@ class ProductTypesController extends \App\Http\Controllers\Controller
     {
         return view("$this->module::$this->plural/form", [
             'mainController' => $this->controller,
-            'pageTitle' => 'Product Type Form',
-            'panelTitle' => 'Edit Product Type',
-            'data' => ProductTypes::find($id),
+            'pageTitle' => 'Transactions Form',
+            'panelTitle' => 'Edit Transactions',
+            'data' => Transactions::find($id),
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $data = ProductTypes::find($id)->update([
+        $data = Transactions::find($id)->update([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'updated_by' => 'DUMMY',
@@ -127,7 +126,7 @@ class ProductTypesController extends \App\Http\Controllers\Controller
 
     public function destroy(Request $request)
     {
-        $data = ProductTypes::find($request->input('item-id'))->delete();
+        $data = Transactions::find($request->input('item-id'))->delete();
 
         return redirect("/admin/$this->plural")
             ->with('success', "The $this->singular has been successfully deleted");

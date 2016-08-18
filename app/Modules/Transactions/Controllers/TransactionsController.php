@@ -1,25 +1,62 @@
 <?php
 
+/**
+ * Managing OCommerce products
+ *
+ * Products management of OCommerce involves entities of products, product
+ * images, categories, and product types
+ *
+ * @category   Controller
+ * @package    App\Modules\Products\Controllers\ProductController
+ * @author     Restu Arif Priyono <priyono.arif@gmail.com>
+ * @copyright  2016 oplosite
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    Release: @package_version@
+ * @link       http://oplosite.com
+ */
+
 namespace App\Modules\Transactions\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Modules\Transactions\Models\Transactions;
 
-class TransactionsController extends Controller
+class TransactionsController extends \App\Http\Controllers\Controller
 {
-    private $controller = 'ProductController';
-    private $viewDir = 'products';
+    /*
+     * Base package module for this controller
+     */
+    private $controller = '\App\Modules\Transactions\Controllers\TransactionsController';
 
+    /*
+     * Name of this module
+     */
+    private $module = 'Transactions';
+
+    /*
+     * Name of module in lowercase and plural style
+     */
+    private $plural = 'transactions';
+
+    /*
+     * Name of module in lowercase and singular style
+     */
+    private $singular = 'transaction';
+
+    /*
+     * Main index method to display list of data
+     */
     public function index(Request $request)
-    {
+     {
         if ($request->input('id') !== null) {
-            // Redirect to detail
-            return $this->show($request->input('id'));
+             // Redirect to detail
+             return $this->show($request->input('id'));
         }
-        $data = Products::paginate(10);
+        $data = Transactions::paginate(10);
 
-        return view('admin/commons/list', [
+        return view('Products::commons/list', [
+            'pageTitle' => 'Transactions List',
+            'panelTitle' => 'Transactions',
             'data' => $data,
             'isCreateButtonEnable' => true,
             'mainController' => $this->controller,
@@ -28,135 +65,71 @@ class TransactionsController extends Controller
             'dataHeader' => [
                 'title' => 'Title',
                 'description' => 'Description',
+                'status_id' => 'Status',
             ]
         ]);
     }
 
     public function create()
     {
-        // Get product types
-        $productTypes = [];
-        foreach (ProductTypes::all() as $key => $value) {
-            $productTypes[$value->id] = $value->title;
-        };
-
-        // Get product categories
-        $productCategories = [];
-        foreach (Categories::all() as $key => $value) {
-            $productCategories[$value->id] = $value->title;
-        };
-
-        return view('admin/products/form', [
-            'data' => new Products(),
-            'productTypes' => $productTypes,
-            'productCategories' => $productCategories,
-            'currentCategories' => '',
+        return view("$this->module::$this->plural/form", [
+            'pageTitle' => 'Transaction Form',
+            'panelTitle' => 'New Transation',
+            'data' => new Transactions(),
+            'mainController' => $this->controller,
         ]);
     }
 
     public function store(Request $request)
     {
-        // Product storing
-        $product = Products::create([
+        $data = Transactions::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'purchase_price' => $request->input('purchase-price'),
-            'selling_price' => $request->input('selling-price'),
-            'stock' => $request->input('stock'),
-            'product_type_id' => $request->input('type'),
-            'user_id' => 1,
             'created_by' => 'DUMMY',
         ]);
 
-        // Storing categories
-        $categories = [];
-        foreach ($request->input('categories') as $key => $value) {
-            $categories[] = $key;
-        }
-        $product->categories()->sync($categories);
-
-        // Image storing (if any)
-        $images = [];
-        $productTitle = $request->input('title');
-        $rootCatalogue = "catalogue/";
-
-        foreach ($request->file('image') as $key => $file) {
-            $filename =  $file->getClientOriginalName();
-            $file->move($rootCatalogue, $filename);
-            $images[] = [
-                'title' => $filename,
-                'url' => $rootCatalogue . $filename,
-                'product_id' => $product->id,
-                'created_by' => 'DUMMY',
-            ];
-        }
-
-        // Bulk store to database
-        ProductImages::Insert($images);
-
-        // Redirect to detail
-        return redirect("/admin/product/$product->id")
-            ->with('success', 'Successfully created a product');
+        return redirect("/admin/$this->plural/$data->id")
+            ->with('success', 'The ' . $this->plural . ' has been successfully created');
     }
 
     public function show($id)
     {
-        $data = Products::find($id);
+        $data = Transactions::find($id);
 
-        return view("admin/$this->viewDir/detail", [
-            'data' => $data,
+        return view("$this->module::$this->plural/detail", [
             'controller' => $this->controller,
+            'pageTitle' => 'Product Type Detail',
+            'data' => Transactions::find($id),
         ]);
     }
 
     public function edit($id)
     {
-        // Get product types
-        $productTypes = [];
-        foreach (ProductTypes::all() as $key => $value) {
-            $productTypes[$value->id] = $value->title;
-        };
-
-        // Get product categories
-        $productCategories = [];
-        foreach (Categories::all() as $key => $value) {
-            $productCategories[$value->id] = $value->title;
-        };
-
-        // Get the product
-        $product = Products::find($id);
-
-        // Get current categories
-        $currentCategories = '';
-        foreach ($product->categories as $key => $value) {
-            $currentCategories .= "$value->id;";
-        }
-
-        return view('admin/' . $this->viewDir . '/form', [
-            'data' => $product,
-            'productTypes' => $productTypes,
-            'productCategories' => $productCategories,
-            'currentCategories' => $currentCategories,
+        return view("$this->module::$this->plural/form", [
+            'mainController' => $this->controller,
+            'pageTitle' => 'Transactions Form',
+            'panelTitle' => 'Edit Transactions',
+            'data' => Transactions::find($id),
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $data = Products::find($id)->update([
+        $data = Transactions::find($id)->update([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'updated_by' => 'DUMMY',
         ]);
 
-        return redirect('/admin/' . $this->viewDir . '/' . $data->id)
-            ->with('success', 'The ' . $this->viewDir . ' has been successfully updated');
+        return redirect("/admin/$this->plural/$data->id")
+            ->with('success', "The $this->singular has been successfully updated");
     }
 
     public function destroy(Request $request)
     {
-        $data = Products::find($request->input('item-id'))->delete();
+        $data = Transactions::find($request->input('item-id'))->delete();
 
-        return redirect('/admin/product')
-            ->with('success', 'The ' . $this->viewDir . ' has been successfully deleted');
+        return redirect("/admin/$this->plural")
+            ->with('success', "The $this->singular has been successfully deleted");
     }
 }

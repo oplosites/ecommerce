@@ -5,6 +5,6 @@ return  [
     'modules' => [
         'Products',
         'Transactions',
-        'Users',
+        'PaymentMethods',
     ]
 ];
