@@ -6,5 +6,6 @@ return  [
         'Products',
         'Transactions',
         'PaymentMethods',
+        'Users',
     ]
 ];
