@@ -55,7 +55,7 @@ $baseModule = '\\App\\Modules\\Products\\Controllers';
                         <ul class="nav child_menu" style="display: none">
                             <li>
                                 {!! link_to_action("SettingsController@index", 'General Settings') !!}
-                                {!! link_to_action("UsersController@index", 'Users') !!}
+                                {!! link_to_action("\App\Modules\Users\Controllers\UsersController@index", 'Users') !!}
                                 {!! link_to_action("\App\Modules\PaymentMethods\Controllers\PaymentMethodsController@index", 'Payment Methods') !!}
                             </li>
                         </ul>

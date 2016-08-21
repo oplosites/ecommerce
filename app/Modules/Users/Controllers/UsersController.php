@@ -20,6 +20,7 @@ namespace App\Modules\Users\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Modules\Users\Models\Users;
+use Illuminate\Support\Facades\Input;
 
 class UsersController extends \App\Http\Controllers\Controller
 {
@@ -72,7 +73,7 @@ class UsersController extends \App\Http\Controllers\Controller
     public function create()
     {
         return view("$this->module::$this->plural/form", [
-            'pageTitle' => $this->module . 'Form',
+            'pageTitle' => $this->module . ' Form',
             'panelTitle' => 'New ' . $this->singular,
             'data' => new Users(),
             'mainController' => $this->controller,
@@ -81,15 +82,29 @@ class UsersController extends \App\Http\Controllers\Controller
 
     public function store(Request $request)
     {
-        $data = Users::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => \Hash::make($request->input('password')),
-            'created_by' => 'DUMMY',
-        ]);
+        $rules = [
+            'name' => 'required | unique:users',
+            'email' => 'required | unique:users | email',
+            'password' => 'min:6 | required | confirmed',
+        ];
 
-        return redirect("/admin/$this->plural/$data->id")
-            ->with('success', 'The ' . $this->plural . ' has been successfully created');
+        // Create a new validator instance.
+        $validator = \Validator::make(Input::all(), $rules);
+
+        if ($validator->passes()) {
+            $data = Users::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => $request->input('password'),
+                'created_by' => 'DUMMY',
+            ]);
+
+            return redirect("/$this->plural/$data->id")
+                ->with('success', 'The ' . $this->plural . ' has been successfully created');
+        } else {
+            return redirect("/$this->plural/new")
+                ->withErrors($validator);
+        }
     }
 
     public function show($id)
