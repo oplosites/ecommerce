@@ -24,4 +24,11 @@ class Users extends Authenticatable
         'password', 'remember_token',
     ];
 
+    private $baseModule = 'App\Modules\Users\Models';
+
+    public function info()
+    {
+        return $this->hasOne("$this->baseModule\UsersInfo");
+    }
+
 }

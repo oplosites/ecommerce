@@ -20,6 +20,8 @@ namespace App\Modules\Users\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Modules\Users\Models\Users;
+use App\Modules\Users\Models\Provinces;
+use App\Modules\Users\Models\Cities;
 use Illuminate\Support\Facades\Input;
 
 class UsersController extends \App\Http\Controllers\Controller
@@ -72,11 +74,23 @@ class UsersController extends \App\Http\Controllers\Controller
 
     public function create()
     {
+        $provinces = [];
+        foreach (Provinces::all() as $key => $value) {
+            $provinces[$value->id] = $value->name;
+        }
+
+        $cities = [];
+        foreach (Cities::all() as $key => $value) {
+            $cities[$value->id] = $value->name;
+        }
+
         return view("$this->module::$this->plural/form", [
             'pageTitle' => $this->module . ' Form',
             'panelTitle' => 'New ' . $this->singular,
             'data' => new Users(),
             'mainController' => $this->controller,
+            'provinces' => $provinces,
+            'cities' => $cities,
         ]);
     }
 
