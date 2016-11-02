@@ -3,9 +3,10 @@
 
 return  [
     'modules' => [
+        'Users',
+        'Front',
         'Products',
         'Transactions',
         'PaymentMethods',
-        'Users',
     ]
 ];

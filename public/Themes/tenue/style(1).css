@@ -1,0 +1,194 @@
+/*
+Theme Name:   	Priere
+Theme URI:    	http://oplosite.com/
+Author:         Oplosite
+Author URI:     http://oplosite.com/
+Description:  	Priere theme is a child theme of Storefront.
+Template:       storefront
+Version:      	0.0.1
+License:      	GNU General Public License v2 or later
+License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  	priere
+Tags:         	e-commerce, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready, rtl-language-support, footer-widgets, sticky-post, theme-options
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Storefront is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+
+All sizing (typography, layout, padding/margins etc) are inspired by a modular scale that uses 12px/14px as base sizes with a 1.618 ratio.
+We use the excellent modular scale tool built by Tim Brown to calculate this. http://modularscale.com/scale/?px1=14&px2=12&ra1=1.618&ra2=0
+
+FontAwesome License: SIL Open Font License - http://scripts.sil.org/OFL
+Images License: GNU General Public License v2 or later
+*/
+
+@font-face {
+    font-family: 'sav';
+    src: url('fonts/GaramondPremrPro-Capt.woff') format('woff'),
+         url('fonts/GaramondPremrPro-Capt.eot?#iefix') format('embedded-opentype'),
+         url('fonts/GaramondPremrPro-Capt.ttf') format('truetype');
+}
+
+body, button, input, select, textarea {
+    font-family: 'sav', Arial, sans-serif;
+}
+
+#masthead,
+.storefront-primary-navigation {
+    background: transparent;
+}
+
+.woocommerce-breadcrumb,
+.widget_nav_menu .widget-title {
+    display: none;
+}
+
+.site-header {
+    margin-bottom: 4.236em;
+}
+
+@media (min-width: 768px) {
+    #content h1 {
+        display: none;
+    }
+    .single-product #content h1 {
+        display: block;
+    }
+}
+
+.widget-area .widget_nav_menu a:not(.button) {
+    text-decoration: none;
+    color: #5e5f65;
+}
+
+#menu-top .current-menu-item a:not(.button),
+.widget-area .widget_nav_menu .current-menu-item > a:not(.button) {
+    text-decoration: underline;
+    color: #2c2d33;
+}
+.single-product .widget-area .widget_nav_menu .current-menu-item a:not(.button) {
+    text-decoration: none;
+    color: #5e5f65;
+}
+
+.widget-area .widget_nav_menu a:not(.button):hover {
+    text-decoration: underline;
+}
+
+.widget_nav_menu ul li:before {
+    display: none;
+}
+
+.widget-area .widget_nav_menu {
+    font-size: 1em;
+    margin-bottom: 2.618em;
+}
+
+#woocommerce-product-search-field {
+    background-color: transparent;
+    box-shadow: inset 0 1px 1px transparent;
+}
+.site-search .widget_product_search form:before {
+    left: 0;
+}
+.site-search .widget_product_search input[type=search] {
+    padding-left: 2.013em;
+}
+
+.main-navigation ul li a:before {
+    content: "";
+}
+
+@media (min-width: 768px) {
+    .left-sidebar .widget-area {
+        width: 200px;
+        position: absolute;
+    }
+    .left-sidebar .content-area {
+        width: 100%;
+        padding-left: 236px;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-full {
+        max-width: 1366px;
+    }
+    .home.page #content > .col-full {
+        padding: 0;
+    }
+    .home.page #content #primary {
+        margin-top: -150px;
+        padding-left: 0;
+    }
+    .home.page #content #secondary {
+        padding-left: 2.618em;
+    }
+    .home.page .widget-area .widget_nav_menu a {
+        color: #2c2d33;
+    }
+    #content {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 767px) {
+    #secondary {
+        display: none;
+    }
+}
+
+[class*='ocol-'] {
+    float: left;
+    display: block;
+}
+.ogrid:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.ogrid img {
+    border-radius: 0;
+}
+.ogrid br, .ogrid p {
+    display: none;
+}
+@media (min-width: 769px) {
+    .ogrid {
+        margin-bottom: 12px;
+    }
+    .ocol-half {
+        width: 50%;
+    }
+    .ocol-third {
+        width: 33.33%;
+    }
+    [class*='ocol-half']:first-of-type {
+        padding-right: 6px;
+    }
+    [class*='ocol-half']:last-of-type {
+        padding-left: 6px;
+    }
+    [class*='ocol-third'] {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    [class*='ocol-third']:first-of-type {
+        padding-left: 0;
+        padding-right: 8px;
+    }
+    [class*='ocol-third']:last-of-type {
+        padding-left: 8px;
+        padding-right: 0;
+    }
+}
+@media (max-width: 768px) {
+    .ogrid {
+        margin: 0 -1.387em;
+    }
+}

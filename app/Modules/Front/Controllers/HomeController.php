@@ -15,13 +15,13 @@
  * @link       http://oplosite.com
  */
 
-namespace App\Modules\Products\Controllers;
+namespace App\Modules\Front\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Modules\Products\Models\Categories;
 
-class CategoriesController extends \App\Http\Controllers\Controller
+class HomeController extends \App\Http\Controllers\Controller
 {
     /*
      * Base package module for this controller

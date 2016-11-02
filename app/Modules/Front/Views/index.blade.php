@@ -6,7 +6,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="http://prierefootwear.id/xmlrpc.php">
 
-<title>Priere</title>
+<title>Tenue de Attire</title>
 <meta name="robots" content="noindex,follow">
 <link rel="alternate" type="application/rss+xml" title="Priere » Feed" href="http://prierefootwear.id/feed/">
 <link rel="alternate" type="application/rss+xml" title="Priere » Comments Feed" href="http://prierefootwear.id/comments/feed/">
@@ -28,7 +28,7 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-<link rel="stylesheet" id="storefront-style-css" href="./Priere_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="storefront-style-css" href="{{ asset ('Themes/tenue/style.css') }}" type="text/css" media="all">
 <style id="storefront-style-inline-css" type="text/css">
 
 			.main-navigation ul li a,
@@ -178,8 +178,8 @@ img.emoji {
 				}
 			}
 </style>
-<link rel="stylesheet" id="storefront-fonts-css" href="./Priere_files/css" type="text/css" media="all">
-<link rel="stylesheet" id="storefront-woocommerce-style-css" href="./Priere_files/woocommerce.css" type="text/css" media="all">
+<link rel="stylesheet" id="storefront-fonts-css" href="{{ asset ('Themes/tenue/css') }}" type="text/css" media="all">
+<link rel="stylesheet" id="storefront-woocommerce-style-css" href="{{ asset ('Themes/tenue/woocommerce.css') }}" type="text/css" media="all">
 <style id="storefront-woocommerce-style-inline-css" type="text/css">
 
 			a.cart-contents,
@@ -238,9 +238,9 @@ img.emoji {
 				}
 			}
 </style>
-<link rel="stylesheet" id="storefront-child-style-css" href="./Priere_files/style(1).css" type="text/css" media="all">
-<script type="text/javascript" src="./Priere_files/jquery.js"></script>
-<script type="text/javascript" src="./Priere_files/jquery-migrate.min.js"></script>
+<link rel="stylesheet" id="storefront-child-style-css" href="{{ asset ('Themes/tenue/style(1).css') }}" type="text/css" media="all">
+<script type="text/javascript" src="{{ asset ('Themes/tenue/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/jquery-migrate.min.js') }}"></script>
 <link rel="https://api.w.org/" href="http://prierefootwear.id/wp-json/">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://prierefootwear.id/xmlrpc.php?rsd">
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://prierefootwear.id/wp-includes/wlwmanifest.xml">
@@ -261,7 +261,7 @@ img.emoji {
 					<a class="skip-link screen-reader-text" href="http://prierefootwear.id/#site-navigation">Skip to navigation</a>
 		<a class="skip-link screen-reader-text" href="http://prierefootwear.id/#content">Skip to content</a>
 					<div class="site-branding">
-				<h1 class="site-title"><a href="http://prierefootwear.id/" rel="home">Priere</a></h1>
+				<h1 class="site-title"><a href="http://prierefootwear.id/" rel="home">Tenue de Attire</a></h1>
 							</div>
 					<div class="site-search">
 				<div class="widget woocommerce widget_product_search">
@@ -318,16 +318,16 @@ img.emoji {
 			<h1 class="entry-title">Home</h1>		</header><!-- .entry-header -->
 				<div class="entry-content">
 			<div class="ogrid"><br>
-<a class="ocol-full" href="http://prierefootwear.id/full"><img alt="" src="./Priere_files/landing-restock.jpg"></a><br>
+<a class="ocol-full" href="http://prierefootwear.id/full"><img alt="" src="{{ asset ('Themes/tenue/landing-restock.jpg') }}"></a><br>
 </div>
 <div class="ogrid"><br>
-<a class="ocol-half" href="http://prierefootwear.id/half1"><img alt="" src="./Priere_files/landing-restock.jpg"></a><br>
-<a class="ocol-half" href="http://prierefootwear.id/half2"><img alt="" src="./Priere_files/landing-restock.jpg"></a><br>
+<a class="ocol-half" href="http://prierefootwear.id/half1"><img alt="" src="{{ asset ('Themes/tenue/landing-restock.jpg') }}"></a><br>
+<a class="ocol-half" href="http://prierefootwear.id/half2"><img alt="" src="{{ asset ('Themes/tenue/landing-restock.jpg') }}"></a><br>
 </div>
 <div class="ogrid"><br>
-<a class="ocol-third" href="http://prierefootwear.id/third1"><img alt="" src="./Priere_files/landing-restock.jpg"></a><br>
-<a class="ocol-third" href="http://prierefootwear.id/third2"><img alt="" src="./Priere_files/landing-restock.jpg"></a><br>
-<a class="ocol-third" href="http://prierefootwear.id/third3"><img alt="" src="./Priere_files/landing-restock.jpg"></a><br>
+<a class="ocol-third" href="http://prierefootwear.id/third1"><img alt="" src="{{ asset ('Themes/tenue/landing-restock.jpg') }}"></a><br>
+<a class="ocol-third" href="http://prierefootwear.id/third2"><img alt="" src="{{ asset ('Themes/tenue/landing-restock.jpg') }}"></a><br>
+<a class="ocol-third" href="http://prierefootwear.id/third3"><img alt="" src="{{ asset ('Themes/tenue/landing-restock.jpg') }}"></a><br>
 </div>
 					</div><!-- .entry-content -->
 		</article><!-- #post-## -->
@@ -352,7 +352,7 @@ img.emoji {
 
 			    <div class="site-info">
         © Priere 2016    </div><!-- .site-info -->
-    <script src="./Priere_files/script.js"></script>
+    <script src="{{ asset ('Themes/tenue/script.js') }}"></script>
     		<section class="storefront-handheld-footer-bar">
 			<ul class="columns-3">
 									<li class="my-account">
@@ -388,24 +388,24 @@ img.emoji {
 var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View Cart","cart_url":"http:\/\/prierefootwear.id\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="./Priere_files/add-to-cart.min.js"></script>
-<script type="text/javascript" src="./Priere_files/jquery.blockUI.min.js"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/add-to-cart.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/jquery.blockUI.min.js') }}"></script>
 <script type="text/javascript">
 /* <![CDATA[ */
 var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="./Priere_files/woocommerce.min.js"></script>
-<script type="text/javascript" src="./Priere_files/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/woocommerce.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/jquery.cookie.min.js') }}"></script>
 <script type="text/javascript">
 /* <![CDATA[ */
 var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="./Priere_files/cart-fragments.min.js"></script>
-<script type="text/javascript" src="./Priere_files/navigation.min.js"></script>
-<script type="text/javascript" src="./Priere_files/skip-link-focus-fix.min.js"></script>
-<script type="text/javascript" src="./Priere_files/wp-embed.min.js"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/cart-fragments.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/navigation.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/skip-link-focus-fix.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset ('Themes/tenue/wp-embed.min.js') }}"></script>
 
 
 

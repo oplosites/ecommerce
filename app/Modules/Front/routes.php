@@ -1,8 +1,8 @@
 <?php
 
 // Evaluation management
-$baseModule = '\App\Modules\Products\Controllers';
+$baseModule = '\App\Modules\Front\Controllers';
 
-Route::group(['prefix' => '/home'], function() use ($baseModule) {
+Route::group(['prefix' => '/'], function() use ($baseModule) {
     Route::get('/', "$baseModule\HomeController@index");
 });
