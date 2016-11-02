@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 <!-- saved from url=(0025)http://prierefootwear.id/ -->
-<html lang="en-US"><div class="oneNoteWebClipperIsInstalledOnThisBrowser" style="display: none;"></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en-US">
+    <div class="oneNoteWebClipperIsInstalledOnThisBrowser"
+        style="display: none;">
+    </div>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="http://prierefootwear.id/xmlrpc.php">
+    <head>
+        <meta http-equiv="Content-Type"
+            content="text/html; charset=UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <link rel="profile"
+            href="http://gmpg.org/xfn/11">
+        <link rel="pingback"
+            href="http://prierefootwear.id/xmlrpc.php">
 
-<title>Tenue de Attire</title>
-<meta name="robots" content="noindex,follow">
-<link rel="alternate" type="application/rss+xml" title="Priere » Feed" href="http://prierefootwear.id/feed/">
-<link rel="alternate" type="application/rss+xml" title="Priere » Comments Feed" href="http://prierefootwear.id/comments/feed/">
+        <title>Tenue de Attire</title>
+        <meta name="robots"
+            content="noindex,follow">
+        <link rel="alternate"
+            type="application/rss+xml"
+            title="Tenue de Attire » Feed"
+            href="http://prierefootwear.id/feed/">
+        <link rel="alternate"
+            type="application/rss+xml"
+            title="Tenue de Attire » Comments Feed"
+            href="http://prierefootwear.id/comments/feed/">
 		<script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/prierefootwear.id\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.4"}};
 			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
 		<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-</style>
-<link rel="stylesheet" id="storefront-style-css" href="{{ asset ('Themes/tenue/style.css') }}" type="text/css" media="all">
-<style id="storefront-style-inline-css" type="text/css">
+            img.wp-smiley,
+            img.emoji {
+            	display: inline !important;
+            	border: none !important;
+            	box-shadow: none !important;
+            	height: 1em !important;
+            	width: 1em !important;
+            	margin: 0 .07em !important;
+            	vertical-align: -0.1em !important;
+            	background: none !important;
+            	padding: 0 !important;
+            }
+        </style>
+        <link rel="stylesheet"
+            id="storefront-style-css"
+            href="{{ asset ('Themes/tenue/style.css') }}"
+            type="text/css"
+            media="all">
+        <style id="storefront-style-inline-css"
+            type="text/css">
 
 			.main-navigation ul li a,
 			.site-title a,
@@ -99,7 +120,8 @@ img.emoji {
 			body,
 			.secondary-navigation a,
 			.onsale,
-			.pagination .page-numbers li .page-numbers:not(.current), .woocommerce-pagination .page-numbers li .page-numbers:not(.current) {
+			.pagination .page-numbers li .page-numbers:not(.current),
+            .woocommerce-pagination .page-numbers li .page-numbers:not(.current) {
 				color: #43454b;
 			}
 			.widget-area .widget a,
@@ -121,12 +143,25 @@ img.emoji {
 			input[type="submit"]:focus {
 				outline-color: #96588a;
 			}
-			button, input[type="button"], input[type="reset"], input[type="submit"], .button, .added_to_cart, .widget a.button, .site-header-cart .widget_shopping_cart a.button {
+			button, input[type="button"],
+            input[type="reset"],
+            input[type="submit"],
+            .button,
+            .added_to_cart,
+            .widget a.button,
+            .site-header-cart .widget_shopping_cart a.button {
 				background-color: #96588a;
 				border-color: #96588a;
 				color: #ffffff;
 			}
-			button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .button:hover, .added_to_cart:hover, .widget a.button:hover, .site-header-cart .widget_shopping_cart a.button:hover {
+			button:hover,
+            input[type="button"]:hover,
+            input[type="reset"]:hover,
+            input[type="submit"]:hover,
+            .button:hover,
+            .added_to_cart:hover,
+            .widget a.button:hover,
+            .site-header-cart .widget_shopping_cart a.button:hover {
 				background-color: #7d3f71;
 				border-color: #7d3f71;
 				color: #ffffff;
