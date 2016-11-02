@@ -25,6 +25,6 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         // echo json_encode($request->input());exit;
-        return redirect('admin');
+        return redirect('/home');
     }
 }

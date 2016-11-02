@@ -35,6 +35,6 @@ Route::group(['prefix' => 'settings'], function() {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', '\App\Modules\Front\Controllers\HomeController@index');
 
 Route::get('/product', 'DimasController@index');

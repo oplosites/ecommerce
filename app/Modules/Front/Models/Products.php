@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Modules\Transactions\Models;
+namespace App\Modules\Products\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transactions extends Model
+class Products extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'transactions';
+    protected $table = 'products';
 
     /**
      * The attributes that are mass assignable.
@@ -32,28 +32,25 @@ class Transactions extends Model
         'user_id',
     ];
 
-    public function transactionStatus()
-    {
-        return $this->belongsTo('App\Models\TransactionStatuses');
-    }
+    private $baseModule = 'App\Modules\Products\Models';
 
     public function productType()
     {
-        return $this->belongsTo('App\Models\ProductTypes');
+        return $this->belongsTo("$this->baseModule\ProductTypes");
     }
 
     public function productImages()
     {
-        return $this->hasMany('App\Models\ProductImages', 'product_id');
+        return $this->hasMany("$this->baseModule\ProductImages", 'product_id');
     }
 
     public function uploader()
     {
-        return $this->belongsTo('App\Models\Users');
+        return $this->belongsTo("$this->baseModule\Users");
     }
 
     public function categories()
     {
-        return $this->belongsToMany('App\Models\Categories', 'product_categories', 'product_id', 'category_id');
+        return $this->belongsToMany("$this->baseModule\Categories", 'product_categories', 'product_id', 'category_id');
     }
 }

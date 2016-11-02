@@ -22,6 +22,26 @@ class TransactionModule extends Migration
             $table->timestamps();
         });
 
+        Schema::create('cart_statuses', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('description');
+
+            $table->string('created_by');
+            $table->string('updated_by')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('invoice_statuses', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('description');
+
+            $table->string('created_by');
+            $table->string('updated_by')->nullable();
+            $table->timestamps();
+        });
+
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
 
@@ -110,5 +130,7 @@ class TransactionModule extends Migration
         Schema::drop('currencies');
         Schema::drop('orders');
         Schema::drop('tx_statuses');
+        Schema::drop('cart_statuses');
+        Schema::drop('invoice_statuses');
     }
 }

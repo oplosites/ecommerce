@@ -73,8 +73,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_roles');
         Schema::drop('users');
+        Schema::drop('user_roles');
         Schema::drop('roles');
     }
 }
