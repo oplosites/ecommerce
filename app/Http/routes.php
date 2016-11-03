@@ -28,11 +28,6 @@ Route::group(['prefix' => 'users'], function() {
     Route::get('/', 'UsersController@index');
 });
 
-// Users management
-Route::group(['prefix' => 'settings'], function() {
-    Route::get('/', 'SettingsController@index');
-});
-
 Route::auth();
 
 Route::get('/home', '\App\Modules\Front\Controllers\HomeController@index');

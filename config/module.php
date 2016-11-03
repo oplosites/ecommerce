@@ -3,6 +3,7 @@
 
 return  [
     'modules' => [
+        'Base',
         'Users',
         'Front',
         'Products',

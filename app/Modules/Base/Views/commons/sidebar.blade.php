@@ -29,40 +29,32 @@ $baseModule = '\\App\\Modules\\Products\\Controllers';
                 <div class="clearfix"></div>
                 <ul class="nav side-menu">
                     <li>
-                        <a><i class="fa fa-gift"></i> Product Management <span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fa fa-gift"></i> Products Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
-                                {!! link_to_action("$baseModule\ProductController@index", 'Products') !!}
+                                {!! link_to_action("$baseModule\\ProductController@index", 'Products') !!}
                             </li>
                             <li>
-                                {!! link_to_action("$baseModule\CategoriesController@index", 'Categories') !!}
+                                {!! link_to_action("$baseModule\\CategoriesController@index", 'Categories') !!}
                             </li>
                             <li>
-                                {!! link_to_action("$baseModule\ProductTypesController@index", 'Product Types') !!}
+                                {!! link_to_action("$baseModule\\ProductTypesController@index", 'Product Types') !!}
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-dollar"></i> Sales <span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fa fa-dollar"></i> Sales Management <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
-                                {!! link_to_action("\App\Modules\Transactions\Controllers\TransactionsController@index", 'Sales Report') !!}
-                            </li>
-                            <li>
-                                {!! link_to_action("\App\Modules\Transactions\Controllers\TransactionsController@index", 'Transactions') !!}
-                            </li>
-                            <li>
-                                {!! link_to_action("\App\Modules\Transactions\Controllers\OrdersController@index", 'Orders') !!}
+                                {!! link_to_action('\\App\\Modules\\Transactions\\Controllers\\' . "TransactionsController@index", 'Sales') !!}
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-gear"></i> Administrator <span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fa fa-gear"></i> Application Settings <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
-                                {!! link_to_action("\App\Modules\Base\Controllers\SettingsController@index", 'General Settings') !!}
-                                {!! link_to_action("\App\Modules\Users\Controllers\UsersController@index", 'Users') !!}
-                                {!! link_to_action("\App\Modules\PaymentMethods\Controllers\PaymentMethodsController@index", 'Payment Methods') !!}
+                                {!! link_to_action("SettingsController@index", 'General Settings') !!}
                             </li>
                         </ul>
                     </li>

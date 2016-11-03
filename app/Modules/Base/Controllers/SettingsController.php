@@ -8,8 +8,15 @@ use App\Http\Requests;
 
 class SettingsController extends Controller
 {
-    private $controller = 'ProductController';
-    private $viewDir = 'products';
+    private $controller;
+
+    private $viewDir;
+
+    public function __construct()
+    {
+        $this->controller = get_class ($this);
+        $this->viewDir = strtolower ($this->getControllerName($this->controller));
+    }
 
     public function index(Request $request)
     {
