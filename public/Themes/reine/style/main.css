@@ -1,0 +1,91 @@
+.site-logo {
+    border-bottom: 1px #000 solid;
+    width: 181px;
+    margin: 0 auto;
+}
+
+.site-logo img {
+    margin: 0 auto;
+}
+
+.logo-text {
+    font-family: cinzel,serif;
+}
+
+nav {
+    width: 550px;
+    margin: 0px auto;
+}
+
+.navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:hover {
+    background-color: #fff;
+}
+
+.main-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.main-menu ul li {
+    float: left;
+}
+
+.main-menu ul li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #D1D1D1;
+    width: 100px;
+}
+
+/* Change the link color to #111 (black) on hover */
+.main-menu ul li a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+#front-appointment {
+    height: 435px;
+    width: 100%;
+    background-color: rgba(0, 11, 38, 1);
+}
+
+.front-calendar-image {
+    width: 50px;
+    margin: 0px auto;
+    padding-top: 80px;
+}
+
+.front-calendar-text-wrapper {
+    padding-top: 40px;
+    width: 80%;
+    margin: 0px auto;
+}
+
+.front-calendar-text {
+    text-align: center;
+    color: #fff;
+}
+
+.appointment-btn {
+    width: 180px;
+    margin: 0px auto;
+    padding-top: 40px;
+}
+
+.footer-social {
+    font-size: 20px;
+}
+
+.footer-social a {
+    text-decoration: none;
+    color: rgba(0, 11, 38, 1);
+}
+
+.footer-social a:hover {
+    color: blue;
+}
