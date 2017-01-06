@@ -17,8 +17,19 @@ nav {
     margin: 0px auto;
 }
 
-.navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:hover {
-    background-color: #fff;
+.nav > li > a {
+    text-decoration: none;
+    color: rgba(19, 10, 10, 0.59);
+}
+
+.navbar-nav > .active{
+    color: #000;
+    font-weight: bolder;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #fff !important;
+    color: #000;
 }
 
 .main-menu ul {

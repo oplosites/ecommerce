@@ -48,6 +48,6 @@ class HomeController extends \App\Http\Controllers\Controller
      */
     public function index(Request $request)
     {
-        return view('Front::index');
+        return view('Front::landing');
     }
 }

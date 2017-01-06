@@ -7,8 +7,12 @@
             href="/Themes/reine/style/main.css">
         <link rel="stylesheet"
             href="/Themes/reine/style/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Anton:n,b,i,bi|Basic:n,b,i,bi|Caudex:n,b,i,bi|Chelsea+Market:n,b,i,bi|Corben:n,b,i,bi|EB+Garamond:n,b,i,bi|Enriqueta:n,b,i,bi|Forum:n,b,i,bi|Fredericka+the+Great:n,b,i,bi|Jockey+One:n,b,i,bi|Josefin+Slab:n,b,i,bi|Jura:n,b,i,bi|Kelly+Slab:n,b,i,bi|Marck+Script:n,b,i,bi|Lobster:n,b,i,bi|Mr+De+Haviland:n,b,i,bi|Niconne:n,b,i,bi|Noticia+Text:n,b,i,bi|Overlock:n,b,i,bi|Patrick+Hand:n,b,i,bi|Play:n,b,i,bi|Sarina:n,b,i,bi|Signika:n,b,i,bi|Spinnaker:n,b,i,bi|Monoton:n,b,i,bi|Sacramento:n,b,i,bi|Cookie:n,b,i,bi|Raleway:n,b,i,bi|Open+Sans+Condensed:300:n,b,i,bi|Amatic+SC:n,b,i,bi|Cinzel:n,b,i,bi|Sail:n,b,i,bi|Playfair+Display:n,b,i,bi|Libre+Baskerville:n,b,i,bi|&amp;subset=latin-ext,cyrillic,japanese,korean,arabic,hebrew,latin" id="font_googleFonts">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet"
+            href="//fonts.googleapis.com/css?family=Anton:n,b,i,bi|Basic:n,b,i,bi|Caudex:n,b,i,bi|Chelsea+Market:n,b,i,bi|Corben:n,b,i,bi|EB+Garamond:n,b,i,bi|Enriqueta:n,b,i,bi|Forum:n,b,i,bi|Fredericka+the+Great:n,b,i,bi|Jockey+One:n,b,i,bi|Josefin+Slab:n,b,i,bi|Jura:n,b,i,bi|Kelly+Slab:n,b,i,bi|Marck+Script:n,b,i,bi|Lobster:n,b,i,bi|Mr+De+Haviland:n,b,i,bi|Niconne:n,b,i,bi|Noticia+Text:n,b,i,bi|Overlock:n,b,i,bi|Patrick+Hand:n,b,i,bi|Play:n,b,i,bi|Sarina:n,b,i,bi|Signika:n,b,i,bi|Spinnaker:n,b,i,bi|Monoton:n,b,i,bi|Sacramento:n,b,i,bi|Cookie:n,b,i,bi|Raleway:n,b,i,bi|Open+Sans+Condensed:300:n,b,i,bi|Amatic+SC:n,b,i,bi|Cinzel:n,b,i,bi|Sail:n,b,i,bi|Playfair+Display:n,b,i,bi|Libre+Baskerville:n,b,i,bi|&amp;subset=latin-ext,cyrillic,japanese,korean,arabic,hebrew,latin" id="font_googleFonts">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+            rel="stylesheet">
+
+        <script src="/Themes/reine/script/jquery-3.1.1.min.js"></script>
         <script src="/Themes/reine/style/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     </head>
 
@@ -41,7 +45,7 @@
                                     <a href="/">Home</a>
                                 </li>
                                 <li>
-                                    <a href="/">About</a>
+                                    <a href="/about">About</a>
                                 </li>
                                 <li>
                                     <a href="/">Collection</a>
@@ -61,66 +65,7 @@
         		</div>
         	</header><!-- #masthead -->
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                            <li data-target="#myCarousel" data-slide-to="3"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <img src="{{ asset ('Themes/tenue/landing-restock.jpg') }}" alt="Chania">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{ asset ('Themes/tenue/landing-restock.jpg') }}" alt="Chania">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{ asset ('Themes/tenue/landing-restock.jpg') }}" alt="Flower">
-                            </div>
-
-                            <div class="item">
-                                <img src="{{ asset ('Themes/tenue/landing-restock.jpg') }}" alt="Flower">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <br/>
-
-            <div class="row">
-                <div class="col-md-5">
-                    <div id="front-appointment">
-                        <div class="img-responsive img-circle">
-                            <div class="front-calendar-image">
-                                <img src="{{ asset ('Themes/reine/images/calendar.png') }}" />
-                            </div>
-                            <div class="front-calendar-text-wrapper">
-                                <h5 class="front-calendar-text">Contact us to make an appointment and get your dream wedding ring design</h5>
-                            </div>
-                            <div class="appointment-btn">
-                                <a href="#"
-                                    class="btn btn-default">
-                                    Make An Appointment
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <img src="{{ asset ('Themes/reine/images/front-gift.jpg') }}"
-                        class="img-responsive"
-                        alt="gift"/>
-                </div>
-            </div>
+            @yield('content')
 
             <hr/>
 
@@ -149,4 +94,11 @@
         	</footer>
         </div>
     </body>
+    <script>
+        $(function(){
+            $('.carousel').carousel({
+              interval: 2000
+            });
+        });
+    </script>
 </html>
