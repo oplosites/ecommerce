@@ -54,7 +54,7 @@
                                     <a href="/">Make Appointment</a>
                                 </li>
                                 <li>
-                                    <a href="/">Contact</a>
+                                    <a href="/contact">Contact</a>
                                 </li>
                                 <li>
                                     <a href="/">Blog</a>

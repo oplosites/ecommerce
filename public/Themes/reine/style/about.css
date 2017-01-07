@@ -18,3 +18,17 @@
 .about-image {
     width: 100%;
 }
+
+.map {
+    width: 100%;
+}
+
+.contact-input {
+    border: 1px rgba(36, 36, 36, 1) solid;
+    border-radius: 0px;
+    margin-bottom: 3px;
+}
+
+.contact-button {
+    border-radius: 0px;
+}
