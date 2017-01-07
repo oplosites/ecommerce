@@ -17,6 +17,7 @@
 
 namespace App\Modules\Front\Controllers;
 
+use Mail;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Modules\Products\Models\Categories;
@@ -49,5 +50,22 @@ class HomeController extends \App\Http\Controllers\Controller
     public function index(Request $request)
     {
         return view('Front::landing');
+    }
+
+    public function contact(Request $request)
+    {
+        $content = '<table><tr><td>Nama</td><td>: ' . $request->input('name') . '</td></tr><tr><td>Email</td><td>: ' . $request->input('to') . '</td></tr><tr><td>Isi</td><td>: ' . $request->input('content') . '</td></tr></table>';
+
+        Mail::send('Base::templates/emails/generic-responsive', [
+            'title' => 'Kontak Baru',
+            'pretext' => 'Seseorang telah menghubungi kamu. Berikut ini adalah detilnya:',
+            'content' => "Seseorang telah menghubungi kamu. Berikut ini adalah detilnya: $content",
+        ], function ($mail) use ($request) {
+            $mail->from('oplosite@gmail.com', 'Reine')
+                ->to('priyono.arif@gmail.com', 'Admin Reine')
+                ->subject($request->input('subject'));
+        });
+
+        return view('Front::static/email-success');
     }
 }

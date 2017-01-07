@@ -26,9 +26,15 @@
 .contact-input {
     border: 1px rgba(36, 36, 36, 1) solid;
     border-radius: 0px;
-    margin-bottom: 3px;
+    margin-bottom: 6px;
 }
 
 .contact-button {
     border-radius: 0px;
+}
+
+.contact-address {
+    font: normal normal normal 15px/1.4em din-next-w01-light,din-next-w02-light,din-next-w10-light,sans-serif;
+    font-style: normal;
+    font-family: din-next-w01-light, din-next-w02-light, din-next-w10-light, sans-serif;
 }

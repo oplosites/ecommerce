@@ -3,6 +3,7 @@
 <html lang="en-US">
     <head>
         <title>Reine Jewelry</title>
+        <link rel="preconnect" href="//fonts.googleapis.com">
         <link rel="stylesheet"
             href="/Themes/reine/style/main.css">
         <link rel="stylesheet"

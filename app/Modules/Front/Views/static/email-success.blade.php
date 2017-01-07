@@ -2,10 +2,13 @@
 
 @section('content')
 
-    @include('Base::commons.notifications')
-
     <link rel="stylesheet"
         href="/Themes/reine/style/about.css"/>
+
+    <div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      Email has been successfully sent. Thank you for contacting us. We will be in touch soon.
+    </div>
 
     <div class="row">
         <div class="col-md-12">
