@@ -68,4 +68,9 @@ class HomeController extends \App\Http\Controllers\Controller
 
         return view('Front::static/email-success');
     }
+
+    public function appointment()
+    {
+        return view('Front::static/appointment');
+    }
 }
