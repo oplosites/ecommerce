@@ -5,6 +5,11 @@
     <link rel="stylesheet"
         href="/Themes/reine/style/about.css"/>
 
+    <link rel="stylesheet"
+        href="/Themes/reine/style/jquery.datetimepicker.css"/>
+
+    <script src="/Themes/reine/script/jquery.datetimepicker.full.min.js"></script>
+
     <div class="row">
         <div class="col-md-12">
             <h1 class="about-header">Request an Appointment</h1>
@@ -77,9 +82,20 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label>Schedule</label>
+                    <input type="text"
+                        name="schedule"
+                        class="form-control"
+                        id="schedule"/>
+                </div>
+
                 <h4>How would you like us to contact you?</h4>
             </form>
         </div>
     </div>
 
+    <script>
+        $('#schedule').datetimepicker();
+    </script>
 @endsection

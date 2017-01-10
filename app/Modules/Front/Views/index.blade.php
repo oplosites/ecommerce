@@ -52,7 +52,7 @@
                                     <a href="/">Collection</a>
                                 </li>
                                 <li>
-                                    <a href="/">Make Appointment</a>
+                                    <a href="/appointment">Make Appointment</a>
                                 </li>
                                 <li>
                                     <a href="/contact">Contact</a>
