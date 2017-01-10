@@ -73,4 +73,37 @@ class HomeController extends \App\Http\Controllers\Controller
     {
         return view('Front::static/appointment');
     }
+
+    public function createAppointment(Request $request)
+    {
+        $content = '<table><tr><td>Nama</td><td>: ' . $request->input('title') . ' ' . $request->input('first-name') . ' ' . $request->input('last-name')
+            . '</td></tr><tr><td>Email</td><td>: ' . $request->input('email')
+            . '</td></tr><tr><td>Telepon</td><td>: ' . $request->input('phone')
+            . '</td></tr><tr><td>Schedule</td><td>: <b>' . $request->input('schedule') . '</b>'
+            . '</td></tr><tr><td>Preferensi Kontak Email</td><td>: ' . ($request->input('contact-email') ? 'Ya' : 'Tidak')
+            . '</td></tr><tr><td>Preferensi Kontak Telepon</td><td>: ' . ($request->input('contact-phone') ? 'Ya' : 'Tidak')
+            . '</td></tr></table>';
+
+        Mail::send('Base::templates/emails/generic-responsive', [
+            'title' => 'Kontak Baru',
+            'pretext' => '',
+            'content' => "Seseorang telah menghubungi kamu. Berikut ini adalah detilnya: $content",
+        ], function ($mail) use ($request) {
+            $mail->from('oplosite@gmail.com', 'Reine')
+                ->to('priyono.arif@gmail.com', 'Admin Reine')
+                ->subject('Reine Appointment');
+        });
+
+        Mail::send('Base::templates/emails/generic-responsive', [
+            'title' => 'Kontak Baru',
+            'pretext' => '',
+            'content' => "Appointment detail for Reine: $content",
+        ], function ($mail) use ($request) {
+            $mail->from('oplosite@gmail.com', 'Reine')
+                ->to($request->input('email'), 'Admin Reine')
+                ->subject('Reine Appointment');
+        });
+
+        return view('Front::static/email-success');
+    }
 }

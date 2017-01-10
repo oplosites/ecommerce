@@ -17,4 +17,6 @@ Route::group(['prefix' => '/'], function() use ($baseModule) {
     Route::post('/contact', "$baseModule\HomeController@contact");
 
     Route::get('/appointment', "$baseModule\HomeController@appointment");
+    
+    Route::post('/appointment', "$baseModule\HomeController@createAppointment");
 });
