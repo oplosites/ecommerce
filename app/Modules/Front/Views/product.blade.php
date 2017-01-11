@@ -17,7 +17,7 @@
                 class="btn btn-default">
                 Schedule an appointment
             </a>
-            <a href="#"
+            <a href="/assistance?id={{ $data->id }}"
                 class="btn btn-default">
                 Request assistance
             </a>

@@ -117,4 +117,49 @@ class HomeController extends \App\Http\Controllers\Controller
 
         return view('Front::static/email-success');
     }
+
+    public function assistance()
+    {
+        $id = Input::get('id');
+        $product = null;
+
+        if (!empty($id)) {
+            $product = Products::find($id);
+        }
+
+        return view('Front::static/assistance', [
+            'data' => $product
+        ]);
+    }
+
+    public function createAssistance(Request $request)
+    {
+        $content = '<table><tr><td>Nama</td><td>: ' . $request->input('name')
+            . '</td></tr><tr><td>Email</td><td>: ' . $request->input('email')
+            . '</td></tr><tr><td>Telepon</td><td>: ' . $request->input('phone')
+            . '</td></tr><tr><td>Isi</td><td>: ' . $request->input('message')
+            . '</td></tr></table>';
+
+        Mail::send('Base::templates/emails/generic-responsive', [
+            'title' => 'Kontak Baru',
+            'pretext' => '',
+            'content' => "Seseorang telah melakukan request assistance. Berikut ini adalah detilnya: $content",
+        ], function ($mail) use ($request) {
+            $mail->from('oplosite@gmail.com', 'Reine')
+                ->to('priyono.arif@gmail.com', 'Admin Reine')
+                ->subject('Reine Appointment');
+        });
+
+        Mail::send('Base::templates/emails/generic-responsive', [
+            'title' => 'Kontak Baru',
+            'pretext' => '',
+            'content' => "Appointment detail for Reine: $content",
+        ], function ($mail) use ($request) {
+            $mail->from('oplosite@gmail.com', 'Reine')
+                ->to('priyono.arif@gmail.com', 'Admin Reine')
+                ->subject($request->input('subject'));
+        });
+
+        return view('Front::static/email-success');
+    }
 }
