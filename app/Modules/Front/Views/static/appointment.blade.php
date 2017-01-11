@@ -20,7 +20,21 @@
         method="POST"
         action="/appointment">
         <div class="row">
+            @if (!empty($data))
+
+            <div class="col-md-6">
+                <img src="{{ $data->productImages[0]->url }}"
+                    class="img-responsive"/>
+                    
+                <p>{{ $data->description }}</p>
+            </div>
+            <div class="col-md-6">
+
+            @else
+
             <div class="col-md-12">
+
+            @endif
                 <form class="form">
                     <div class="form-group">
                         <label>

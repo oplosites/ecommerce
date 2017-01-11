@@ -29,7 +29,7 @@
                             <div class="site-logo">
                                 <img class="img-responsive text-center"
                                     width="50"
-                                    src="Themes/reine/images/logo.jpg" />
+                                    src="/Themes/reine/images/logo.jpg" />
                             </div>
                             <h3 class="logo-text text-center">
                                 R E I N E &nbsp;  J E W E L R Y
@@ -48,9 +48,9 @@
                                 <li>
                                     <a href="/about">About</a>
                                 </li>
-                                <li>
-                                    <a href="/">Collection</a>
-                                </li>
+
+                                @include('Front::components.navbar-collection')
+
                                 <li>
                                     <a href="/appointment">Make Appointment</a>
                                 </li>

@@ -18,6 +18,8 @@ use Mail;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Modules\Front\Models\Slider;
+use Illuminate\Support\Facades\Input;
+use App\Modules\Products\Models\Products;
 use App\Modules\Products\Models\Categories;
 
 class HomeController extends \App\Http\Controllers\Controller
@@ -71,7 +73,16 @@ class HomeController extends \App\Http\Controllers\Controller
 
     public function appointment()
     {
-        return view('Front::static/appointment');
+        $id = Input::get('id');
+        $product = null;
+
+        if (!empty($id)) {
+            $product = Products::find($id);
+        }
+
+        return view('Front::static/appointment', [
+            'data' => $product
+        ]);
     }
 
     public function createAppointment(Request $request)

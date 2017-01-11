@@ -21,9 +21,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Modules\Products\Models\Products;
-use App\Modules\Products\Models\ProductImages;
 use App\Modules\Products\Models\Categories;
 use App\Modules\Products\Models\ProductTypes;
+use App\Modules\Products\Models\ProductImages;
 
 class ProductController extends \App\Http\Controllers\Controller
 {
@@ -128,14 +128,16 @@ class ProductController extends \App\Http\Controllers\Controller
         $rootCatalogue = "catalogue/";
 
         foreach ($request->file('image') as $key => $file) {
-            $filename =  $file->getClientOriginalName();
-            $file->move($rootCatalogue, $filename);
-            $images[] = [
-                'title' => $filename,
-                'url' => $rootCatalogue . $filename,
-                'product_id' => $product->id,
-                'created_by' => 'DUMMY',
-            ];
+            if (!empty($file)) {
+                $filename =  $file->getClientOriginalName();
+                $file->move($rootCatalogue, $filename);
+                $images[] = [
+                    'title' => $filename,
+                    'url' => $rootCatalogue . $filename,
+                    'product_id' => $product->id,
+                    'created_by' => 'DUMMY',
+                ];
+            }
         }
 
         // Bulk store to database

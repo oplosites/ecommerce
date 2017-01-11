@@ -17,6 +17,10 @@ Route::group(['prefix' => '/'], function() use ($baseModule) {
     Route::post('/contact', "$baseModule\HomeController@contact");
 
     Route::get('/appointment', "$baseModule\HomeController@appointment");
-    
+
     Route::post('/appointment', "$baseModule\HomeController@createAppointment");
+});
+
+Route::group(['prefix' => '/reine'], function() use ($baseModule) {
+    Route::get('/{id}', "$baseModule\ProductController@show");
 });
