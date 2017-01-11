@@ -1,12 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+/**
+ * Managing application settings page
+ *
+ * @category   Controller
+ * @package    App\Modules\Base\Controllers\SettingsController
+ * @author     Restu Arif Priyono <priyono.arif@gmail.com>
+ * @copyright  2017 oplosite
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    Release: @package_version@
+ * @link       http://oplosite.com
+ */
 
-use Illuminate\Http\Request;
+namespace App\Modules\Base\Controllers;
 
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Modules\Front\Models\Slider;
 
-class SettingsController extends Controller
+class SettingsController extends \App\Http\Controllers\Controller
 {
     private $controller;
 
@@ -20,22 +32,8 @@ class SettingsController extends Controller
 
     public function index(Request $request)
     {
-        if ($request->input('id') !== null) {
-            // Redirect to detail
-            return $this->show($request->input('id'));
-        }
-        $data = Products::paginate(10);
-
-        return view('admin/commons/list', [
-            'data' => $data,
-            'isCreateButtonEnable' => true,
-            'mainController' => $this->controller,
-            'detailMethod' => "$this->controller@index",
-            'editMethod' => "$this->controller@edit",
-            'dataHeader' => [
-                'title' => 'Title',
-                'description' => 'Description',
-            ]
+        return view('Base::settings/main', [
+            'data' => Slider::all()
         ]);
     }
 
@@ -165,5 +163,29 @@ class SettingsController extends Controller
 
         return redirect('/admin/product')
             ->with('success', 'The ' . $this->viewDir . ' has been successfully deleted');
+    }
+
+    public function sliderUpload(Request $request)
+    {
+        if ($request->hasFile('new-slider')) {
+            $destination = 'Themes/reine/images/sliders';
+            $filename = $request->file('new-slider')->getClientOriginalName();
+            $request->file('new-slider')
+                ->move($destination, $filename);
+
+            Slider::create([
+                'filename' => $filename,
+                'path' => $destination . '/' . $filename,
+            ]);
+
+        } else {
+            return redirect()
+                ->back()
+                ->with('danger', 'You should upload a file');
+        }
+
+        return redirect()
+            ->back()
+            ->with('success', 'Slider was uploaded successfully');
     }
 }

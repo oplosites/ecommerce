@@ -1,7 +1,10 @@
 <?php
 
 /**
- * Managing Reine's front landing page
+ * Managing OCommerce products
+ *
+ * Products management of OCommerce involves entities of products, product
+ * images, categories, and product types
  *
  * @category   Controller
  * @package    App\Modules\Products\Controllers\ProductController
@@ -12,12 +15,11 @@
  * @link       http://oplosite.com
  */
 
-namespace App\Modules\Front\Controllers;
+namespace App\Modules\Admin\Controllers;
 
 use Mail;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Modules\Front\Models\Slider;
 use App\Modules\Products\Models\Categories;
 
 class HomeController extends \App\Http\Controllers\Controller
@@ -25,7 +27,7 @@ class HomeController extends \App\Http\Controllers\Controller
     /*
      * Base package module for this controller
      */
-    private $controller = '\App\Modules\Products\Controllers\HomeController';
+    private $controller = '\App\Modules\Admin\Controllers\HomeController';
 
     /*
      * Name of this module
@@ -47,9 +49,7 @@ class HomeController extends \App\Http\Controllers\Controller
      */
     public function index(Request $request)
     {
-        return view('Front::landing', [
-            'data' => Slider::all()
-        ]);
+        return view('Front::landing');
     }
 
     public function contact(Request $request)

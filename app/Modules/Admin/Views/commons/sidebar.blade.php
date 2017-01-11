@@ -54,7 +54,7 @@ $baseModule = '\\App\\Modules\\Products\\Controllers';
                         <a><i class="fa fa-gear"></i> Application Settings <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu" style="display: none">
                             <li>
-                                {!! link_to_action("\\App\\Modules\\Base\\Controllers\\SettingsController@index", 'General Settings') !!}
+                                {!! link_to_action("SettingsController@index", 'General Settings') !!}
                             </li>
                         </ul>
                     </li>
