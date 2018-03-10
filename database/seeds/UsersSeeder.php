@@ -39,7 +39,7 @@ class UsersSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'Administrator',
-                'email' => 'admin@reineshop.com',
+                'email' => 'admin@admin.com',
                 'password' => Hash::make('admin'),
             ],
             [
